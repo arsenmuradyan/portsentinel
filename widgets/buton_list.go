@@ -35,11 +35,11 @@ func (r *ButtonList) Draw(screen tcell.Screen) {
 		if index >= height {
 			break
 		}
-		radioButton := "" // Unchecked.
+		button := "" // Unchecked.
 		if index == r.currentItemIndex {
-			radioButton = "[:blue]" // Checked.
+			button = "[:blue]" // Checked.
 		}
-		line := fmt.Sprintf(`%s%s%s`, radioButton, application.GetName(), strings.Repeat(" ", width-len(application.GetName())))
+		line := fmt.Sprintf(`%s%s%s`, button, application.GetName(), strings.Repeat(" ", width-len(application.GetName())))
 		tview.Print(screen, line, x, y+index, width, tview.AlignLeft, tcell.ColorWhite)
 	}
 }
