@@ -22,6 +22,7 @@ type ButtonList struct {
 func (b *ButtonList) AddItem(item ButtonListItem) {
 	b.items = append(b.items, item)
 }
+
 func NewButtonList() *ButtonList {
 	return &ButtonList{
 		Box: tview.NewBox(),
@@ -35,9 +36,9 @@ func (r *ButtonList) Draw(screen tcell.Screen) {
 		if index >= height {
 			break
 		}
-		button := "" // Unchecked.
+		button := ""
 		if index == r.currentItemIndex {
-			button = "[:blue]" // Checked.
+			button = "[:blue]"
 		}
 		line := fmt.Sprintf(`%s%s%s`, button, application.GetName(), strings.Repeat(" ", width-len(application.GetName())))
 		tview.Print(screen, line, x, y+index, width, tview.AlignLeft, tcell.ColorWhite)
